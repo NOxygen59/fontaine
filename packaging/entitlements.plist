@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>application-identifier</key><string>com.fontaine.app</string>
+  <key>get-task-allow</key><true/>
+  <!-- Installing fonts for the whole system (CTFontManager, persistent scope): Apple grants this
+       to App Store apps only; TrollStore honours it. -->
+  <key>com.apple.developer.user-fonts</key>
+  <array><string>app-usage</string><string>system-installation</string></array>
+  <!-- iPadOS installs only fonts inside the app's bundle, which only root can write to: Fontaine
+       runs fontaine-helper as root. Spawning needs no sandbox (the data container stays) and
+       running as root needs the persona entitlement (TrollStore's documented way). -->
+  <key>com.apple.private.security.no-sandbox</key><true/>
+  <key>com.apple.private.persona-mgmt</key><true/>
+</dict>
+</plist>
